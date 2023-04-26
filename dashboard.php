@@ -38,7 +38,7 @@ header {
 	color: #fff;
 	padding: 60px;
 	text-align: center;
-    background-image: url("mi.jpg");
+    background-image: url("images/food.jpg");
 
 }
 
