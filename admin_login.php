@@ -123,7 +123,8 @@ input[type="submit"]:hover {
             <a href="prova.php" class="w3-bar-item w3-button">Menu</a>
             <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
             <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
-            <a href="admin_login.php" class="w3-bar-item w3-button">Stafi</a>					
+            <a href="admin_login.php" class="w3-bar-item w3-button">Administrator</a>	
+            <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>				
 
             </div>
     </div>
