@@ -54,14 +54,14 @@ exit();
   <head>
     <title>Mrizi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css" />
     
    
     <style>
       .mySlides {display:none;}
       body {
-        background-image:  url("blurr.jpeg");
+        background-image:  url("aa.jpeg");
         font-family: "Times New Roman", Georgia, Serif;
       }
       h1,
@@ -77,106 +77,78 @@ exit();
   height: 65px;
 }
 
-
-
-      .button {
-        display: inline-block;
-        margin: 0 20px;
-        padding: 50px 80px;
-        background-color: #2F4F4F;
-        color: black ;
-        border-radius: 5px;
-        text-decoration: none;
-      }
-
-
-
-
-/* Review Form Styling */
-.review-container {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  width: 45%;
-  margin: 0 auto;
+.review-container form {
+align-items: center;
+  width: 700px;
+  padding: 15px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 7px solid #ccc;
+margin-top: 30px;
+margin-left: 340px;
 }
 
 .review-container label {
-  display: block;
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+  width: 20%;
+  margin-right: 30px;
+ 
 
-.review-container input[type="text"], 
-.review-container textarea {
-  padding: 10px;
-  font-size: 1em;
-  border-radius: 3px;
-  border: none;
-  width: 100%;
-  margin-bottom: 20px;
-  box-sizing: border-box;
 }
 
 .review-container select {
-  padding: 10px;
-  font-size: 1em;
-  border-radius: 3px;
-  border: none;
-  width: 100%;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  appearance: none;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' width='60' height='30'%3E%3Cpath d='M2,2h56c0,3.3-2.7,6-6,6H8C4.7,8,2,5.3,2,2z' fill='%23f5f5f5'/%3E%3Cpath d='M2,24c0-3.3,2.7-6,6-6h40c3.3,0,6,2.7,6,6s-2.7,6-6,6H8C4.7,30,2,27.3,2,24z' fill='%23f5f5f5'/%3E%3Cpath d='M2,16h56c0,3.3-2.7,6-6,6H8C4.7,22,2,19.3,2,16z' fill='%23555555'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: calc(100% - 10px) center;
-  background-size: 10px 12px;
+  width: 50%;
+  height: 30px;
+  margin-right: 20px;
 }
 
-.review-container input[type="submit"] {
-  background-color: #d3a625;
-  border: none;
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.review-container input[type="submit"]:hover {
-  background-color: #b38e1b;
-}
-
-/* Vintage Styling */
-.review-container {
-  background-image: linear-gradient(to bottom right, #f5f5f5, #d9d9d9);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.review-container label {
-  color: #b38e1b;
-}
-
-.review-container input[type="text"], 
 .review-container textarea {
-  background-color: #f2f2f2;
-  color: #666;
-  border: 1px solid #ccc;
-}
-
-.review-container select {
-  background-color: #
-
-
+  width: 80%;
 
 }
+.review-container label[for="name"]{
+font-size: 25px;
+margin-left: 30px;
+}
+.review-container label[for="comment"]{
+  font-size: 25px;
+  margin-left: 30px;
 
-      
+}
+.review-container label[for="rating"]{
+font-size: 25px;
+margin-left: 30px;
+}
+.review-container input[name="name"]{
+background-color: transparent;
+border: 2px solid #ccc;
+}
+.review-container select[name="rating"]{
+background-color: transparent;
+border: 2px solid #ccc;
+}
+.review-container textarea[name="comment"]{
+background-color: transparent;
+border: 2px solid #ccc;
+}
+.review-container input[type="submit"]{
+background-color: transparent;
+border: 5px solid #ccc;
+
+padding: 5px;
+font-size: 20px;
+}
+.fa {
+  display: inline-block;
+
+}
+.star{
+margin-right: 50px;
+
+}
+
+
     </style>
 
   </head>
@@ -224,7 +196,15 @@ exit();
   <label for="name">Emri:</label>
   <input type="text" name="name" required>
   <br><br>
-  <label for="rating">Rate:</label>
+  <label for="rating">Rate Us:</label><div class="star" style="display: flex;">
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+</div>
+
+
   <br>
   <select name="rating" required>
   

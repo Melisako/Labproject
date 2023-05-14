@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        body{
+            background-image: url(aa.jpeg);
+        }
+        #popup-box {
+
+padding: 25px;
+margin-left: 420px;
+margin-top: 235px;
+width: 600px;
+  border: 3px solid #000;
+ 
+
+}
+
+#popup-box p {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#popup-box button {
+   margin-left: 235px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+#popup-box button:hover {
+  background-color: #444;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="popup-box">
+        <p>Reservations can only be made for the current day. Please select the correct date!</p>
+        <button onclick="closePopup()" >Close</button>
+      </div>
+
+      <script>
+        function closePopup() {
+          // Close the popup
+          document.getElementById("popup-box").classList.remove("show-popup");
+          
+          // Redirect to index.php
+          window.location.href = "registeer.php";
+        }
+        </script>
+</body>
+</html>

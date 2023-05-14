@@ -1,36 +1,47 @@
 <?php
 // Start a session
-
 session_start();
 
 include "menagdb.php";
-
-
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate input and sanitize data
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cell = $_POST['cell'];
+    $date = $_POST['date'];
 
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $cell=$_POST['cell'];
-    $date=$_POST['date'];
- 
+    // Get the current date
+    $current_date = date('Y-m-d');
 
-$sqlInsert="Insert into dbuser(email, password,cell, date)
-VALUES (:email, :password, :cell,:date)";
+    // Check if the selected date is equal to the current date
+    if ($date != $current_date) {
+        // Display an error message and prevent the data from being inserted
+        header('Location: WrongDate.html');
+        die(); // Stop the script
+    } else {
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-$statement=$pdo->prepare($sqlInsert);
-$statement-> execute(array(':email'=>$email, ':password'=>$password, ':cell'=>$cell,':date'=>$date ));
+        // Insert the data into the database
+        $sqlInsert = "INSERT INTO dbuser (email, password, cell, date) VALUES (:email, :password, :cell, :date)";
+        $statement = $pdo->prepare($sqlInsert);
+        $statement->execute(array(':email' => $email, ':password' => $hashed_password, ':cell' => $cell, ':date' => $date));
 
-
-
-    // Redirect to a success page
-    header('Location: review.php');
-    exit();
+        // Check if the query returned a row
+        if ($statement->rowCount() > 0) {
+            // Redirect to a success page
+            header('Location: review.php');
+            exit();
+        } else {
+            echo "Not logged in";
+        }
+    }
 }
 ?>
+
 
 
 

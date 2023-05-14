@@ -29,7 +29,7 @@
       }
       .w3-bar {
   height: 61px;
- width: 1380px;
+ width: 1430px;
 }
 .w3-bar-item {
     font-size: 15px;
@@ -109,10 +109,11 @@ li {
 .meal {
   font-size: 29px;
   font-family: Consolas, monospace;
-  padding-right: 70px;
+  padding-right: 75px;
   font-weight: bold;
 
 }
+
 
 
     </style>
