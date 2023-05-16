@@ -54,6 +54,7 @@ $pdo = null;
 		
 <style>
      body {
+      background-image: url(aa.jpeg);
                 font-family: "Times New Roman", Georgia, Serif;
             }
 
@@ -105,26 +106,9 @@ h1 {
 	text-align: center;
 }
 
-.price {
-	font-size: 20px;
-	font-weight: bold;
-	margin-top: 20px;
-}
 
-.update-button {
-  background-color: #ffa07a;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin: auto;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-}
+
+
 
 
     </style>
@@ -158,16 +142,16 @@ h1 {
 <!-- Display the form -->
 <form method="POST">
   <input type="hidden" name="id" value="<?php echo $menu_item['id']; ?>">
-  <label for="name">Name:</label>
+  <label for="name" style="font-size: 20px; padding-left:100px">Name:</label>
   <input type="text" name="name" value="<?php echo $menu_item['name']; ?>" required>
   <br><br>
-  <label for="pershkrimi">Pershkrimi:</label>
+  <label for="pershkrimi" style="font-size: 20px; padding-left:100px ">Pershkrimi:</label>
   <input type="text" name="pershkrimi" value="<?php echo $menu_item['pershkrimi']; ?>" required>
   <br><br>
-  <label for="price">Price:</label>
+  <label for="price" style="font-size: 20px; padding-left:100px;">Price:</label>
   <input type="number" name="price" step="0.01" min="0" value="<?php echo $menu_item['price']; ?>" required>
   <br><br>
-  <input type="submit" value="Update Menu Item">
+  <input type="submit" value="Update Menu Item" style="margin-left:100px;">
 </form>
 
 

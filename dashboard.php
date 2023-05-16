@@ -104,7 +104,7 @@ tr:nth-child(even) {
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="prova.php" class="w3-bar-item w3-button">Menu</a>
+                <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
                 <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
                 <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
                 <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
@@ -132,24 +132,26 @@ tr:nth-child(even) {
         <th>Actions</th>
     </tr>
     
-            <?php
-                        $sql = "SELECT * FROM menu";
-                        $result = $pdo->query($sql);
+    <?php
+$sql = "SELECT * FROM menu";
+$result = $pdo->query($sql);
 
-        
-                        while($row = $result->fetch(PDO::FETCH_ASSOC)){
-                            echo "<tr>";
-                            echo "<td>".$row["id"]."</td>";
-                            echo "<td>".$row["name"]."</td>";
-                            echo "<td>".$row["pershkrimi"]."</td>";
-                            echo "<td>".$row["price"]." $</td>";
-                            echo "<td><a href='edit_item.php?id=".$row["id"]."'>Edit</a></td>";
-                            // echo "<a href='edit_item.php?id=".$row["id"].">";
-                            echo "</tr>";
-                        }
 
-                      
-            ?>
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td>".$row["name"]."</td>";
+    echo "<td>".$row["pershkrimi"]."</td>";
+    echo "<td>".$row["price"]." $</td>";
+    echo "<td><a href='edit_item.php?id=".$row["id"]."'>Edit</a>
+    <a href='delete_items.php?id=".$row["id"]."'>Delete</a></td>";
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+
+
+?>
 </table>
             
 </section>
