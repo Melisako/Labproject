@@ -53,7 +53,7 @@ $pdo = null;
     <style>
       body {
         font-family: "Times New Roman", Georgia, Serif;
-        background-image: url("mi.jpg");
+        background-image: url("aa.jpeg");
       }
       
       h1, h2, h3, h4, h5, h6 {

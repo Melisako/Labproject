@@ -106,10 +106,37 @@ h1 {
 	text-align: center;
 }
 
+.form-container input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .form-container input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+.form-container{
+
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+padding-top: 70px;
+
+border: 2px solid #ccc;
 
 
+}
+.form-container label[for="name"] {
+
+}
 
 
+.form-container label[for="pershkrimi"] {
+}
 
     </style>
   </head>
@@ -140,9 +167,10 @@ h1 {
 
 
 <!-- Display the form -->
+<div class="form-container">
 <form method="POST">
   <input type="hidden" name="id" value="<?php echo $menu_item['id']; ?>">
-  <label for="name" style="font-size: 20px; padding-left:100px">Name:</label>
+  <label for="name" style="font-size: 20px; padding-left:100px;">Name:</label>
   <input type="text" name="name" value="<?php echo $menu_item['name']; ?>" required>
   <br><br>
   <label for="pershkrimi" style="font-size: 20px; padding-left:100px ">Pershkrimi:</label>
@@ -153,6 +181,7 @@ h1 {
   <br><br>
   <input type="submit" value="Update Menu Item" style="margin-left:100px;">
 </form>
+</div>
 
 
 </section>
