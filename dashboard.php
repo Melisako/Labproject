@@ -46,6 +46,22 @@ h1 {
 	margin: 0;
 }
 
+  .edit-button,
+  .delete-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  
+  .edit-button:hover,
+  .delete-button:hover {
+    background-color: #0056b3;
+  }
+
 .menu{
 	display: flex;
 	flex-direction: column;

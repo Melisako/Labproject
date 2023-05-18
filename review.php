@@ -85,9 +85,11 @@ align-items: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border: 7px solid #ccc;
-margin-top: 30px;
+
+margin-top: 4px;
 margin-left: 340px;
+border: 10px solid #606060;
+
 }
 
 .review-container label {
@@ -109,33 +111,40 @@ margin-left: 340px;
 }
 .review-container label[for="name"]{
 font-size: 25px;
-margin-left: 30px;
+margin-left: 80px;
+font-weight: bold;
+
 }
 .review-container label[for="comment"]{
   font-size: 25px;
-  margin-left: 30px;
-
+  display: flex;
+  flex-direction: row;
+ margin-left: 76px;
+font-weight: bold;
 }
 .review-container label[for="rating"]{
 font-size: 25px;
-margin-left: 30px;
+margin-left: 50px;
+font-weight: bold;
 }
 .review-container input[name="name"]{
 background-color: transparent;
-border: 2px solid #ccc;
+border: 3px solid #ccc;
+
 }
 .review-container select[name="rating"]{
 background-color: transparent;
-border: 2px solid #ccc;
+border: 3px solid #ccc;
 }
 .review-container textarea[name="comment"]{
 background-color: transparent;
-border: 2px solid #ccc;
+border: 3px solid #ccc;
+font-weight: bold;
 }
 .review-container input[type="submit"]{
 background-color: transparent;
 border: 5px solid #ccc;
-
+font-weight: bold;
 padding: 5px;
 font-size: 20px;
 }
@@ -144,7 +153,7 @@ font-size: 20px;
 
 }
 .star{
-margin-right: 50px;
+margin-right: 19px;
 
 }
 
@@ -216,7 +225,7 @@ margin-right: 50px;
     <option value="5">5 stars</option>
   </select>
   <br><br>
-  <label for="comment">Bej Koment:</label>
+  <label for="comment">Koment:</label>
   <textarea name="comment" required></textarea>
   <br>
   <input type="submit" value="Dergoje">

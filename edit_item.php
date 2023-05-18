@@ -114,6 +114,7 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+   
   }
 
   .form-container input[type="submit"]:hover {
@@ -123,21 +124,33 @@ h1 {
 
 display: flex;
 flex-direction: column;
-justify-content: flex-start;
-padding-top: 70px;
-
+justify-content: center;
+margin-top: 80px;
+padding: 24px;
 border: 2px solid #ccc;
-
-
-}
-.form-container label[for="name"] {
+height: 400px;
 
 }
 
 
-.form-container label[for="pershkrimi"] {
-}
+.form-container input[type="text"] {
 
+   border: 3px solid #606060;
+    padding: 10px 16px;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+   
+  }
+  .form-container input[type="number"] {
+
+border: 3px solid	#606060;
+ padding: 10px 16px;
+font-weight: bold;
+ border-radius: 2px;
+ cursor: pointer;
+
+}
     </style>
   </head>
   <body>
@@ -170,13 +183,13 @@ border: 2px solid #ccc;
 <div class="form-container">
 <form method="POST">
   <input type="hidden" name="id" value="<?php echo $menu_item['id']; ?>">
-  <label for="name" style="font-size: 20px; padding-left:100px;">Name:</label>
+  <label for="name" style="font-size: 23px; padding-left:100px;">Name:</label>
   <input type="text" name="name" value="<?php echo $menu_item['name']; ?>" required>
   <br><br>
-  <label for="pershkrimi" style="font-size: 20px; padding-left:100px ">Pershkrimi:</label>
+  <label for="pershkrimi" style="font-size: 23px; padding-left:100px ">Pershkrimi:</label>
   <input type="text" name="pershkrimi" value="<?php echo $menu_item['pershkrimi']; ?>" required>
   <br><br>
-  <label for="price" style="font-size: 20px; padding-left:100px;">Price:</label>
+  <label for="price" style="font-size: 23px; padding-left:100px;">Price:</label>
   <input type="number" name="price" step="0.01" min="0" value="<?php echo $menu_item['price']; ?>" required>
   <br><br>
   <input type="submit" value="Update Menu Item" style="margin-left:100px;">
