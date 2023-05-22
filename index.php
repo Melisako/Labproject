@@ -56,7 +56,7 @@ li {
    font-size: 21px;
      background-color: transparent; /* vintage-style background color */
   padding: 20px; /* add some padding for spacing */
-  border-radius: 10px; /* round the corners of the box */
+  border-radius: 11px; /* round the corners of the box */
   box-shadow: 2px 2px 5px #b0b0b0; 
  
 }
