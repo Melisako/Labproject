@@ -108,6 +108,15 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+.button {
+  background-color: #696969;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 2px solid #696969;
+  color: #fff;
+  margin-left: 10px;
+  
+}
 
 </style>
 
@@ -159,8 +168,12 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)){
     echo "<td>".$row["name"]."</td>";
     echo "<td>".$row["pershkrimi"]."</td>";
     echo "<td>".$row["price"]." $</td>";
-    echo "<td><a href='edit_item.php?id=".$row["id"]."'>Edit</a>
-    <a href='delete_items.php?id=".$row["id"]."'>Delete</a></td>";
+    echo "<td>
+    <a href='edit_item.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete_items.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add_menu.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
   
     // echo "<a href='edit_item.php?id=".$row["id"].">";
     echo "</tr>";

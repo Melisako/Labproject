@@ -4,7 +4,7 @@
 <title>Mrizi</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="assets/css/main.css">
 
     <style>
       .mySlides {display:none;}
@@ -154,7 +154,7 @@ li {
     <div class="w3-content" style="max-width:1100px">
 <br><br><br><br><br><br>
         <!-- About Section -->
-        <img src="images/get.jpg" alt="get" width="465" height="460" style="float: right;position: relative; bottom: -30px;">
+        <img src="assets/images/get.jpg" alt="get" width="465" height="460" style="float: right;position: relative; bottom: -30px;">
 
       
             <div class="w3-col m6 w3-padding-large">
@@ -192,7 +192,7 @@ li {
 </div>        
  
            <div class="me">
-           <img src="images/wed.jpg" alt="get" width="475" height="520" style="float: right; margin-right: 22px;">      
+           <img src="assets/images/wed.jpg" alt="get" width="475" height="520" style="float: right; margin-right: 22px;">      
 </div>
 </div>
 <br><br>

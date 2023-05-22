@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href ="css/main.css">
+<link rel="stylesheet" href ="assets/css/main.css">
 
 
     </head>
@@ -102,31 +102,31 @@ font-weight: bold;
 
     <!-- Slides -->
     <div class="slide">
-        <img src="images/steak.jpeg" alt="Kotlet">
+        <img src="asstes/images/steak.jpeg" alt="Kotlet">
         <div class="caption">Kotlet  </div>
     </div>
     <div class="slide">
-        <img src="images/risoto.jpg" alt="Pite">
+        <img src="assets/images/risoto.jpg" alt="Pite">
         <div class="caption">Rizoto</div>
     </div>
    
     <div class="slide">
-        <img src="images/pasta.jpeg" alt="Pasta">
+        <img src="assets/images/pasta.jpeg" alt="Pasta">
         <div class="caption">Tagliatele </div>
     </div>
  
     <div class="slide">
-        <img src="images/sall.jpg" alt="Sallate pule">
+        <img src="assets/images/sall.jpg" alt="Sallate pule">
         <div class="caption">Sallate pule </div>
     </div>
     <div class="slide">
-        <img src="images/flia.jpg" alt="Flia">
+        <img src="assets/images/flia.jpg" alt="Flia">
         <div class="caption">Fli  </div>
     </div>
     
   
     <div class="slide">
-        <img src="images/piz.jpg" alt="Pizza">
+        <img src="assets/images/piz.jpg" alt="Pizza">
         <div class="caption">Pizza </div>
     </div>
  

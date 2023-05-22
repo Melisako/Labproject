@@ -1,3 +1,47 @@
+<?php
+
+
+// Start a session
+
+session_start();
+
+include "menagdb.php";
+
+
+
+// Check if the form has been submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Validate input and sanitize data
+
+    $name=$_POST['Name'];
+    $comment=$_POST['Message'];
+ 
+
+$sqlInsert="Insert into lokacioni(name,comment)
+VALUES (:name,:comment)";
+
+$statement=$pdo->prepare($sqlInsert);
+$statement-> execute(array(':name'=>$name,':comment'=>$comment ));
+
+if (!$statement) {
+  // Redirect to error page with message
+  header('Location: error.php?msg=Unable to submit lokacioni');
+  exit();
+}
+
+// Redirect to a success page
+header('Location: index.php');
+exit();
+}
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -162,7 +206,7 @@
     </div>
     <header>
   <div class="slider-container">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5909.483896731428!2d20.740173224319022!3d42.21995961226521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135395a705b8e14b%3A0xd558e19f4aba3162!2sBazhdarhane%2C%20Prizren!5e0!3m2!1sen!2s!4v1680873593637!5m2!1sen!2s" width="1300" height="470" style="border:0; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5909.483896731428!2d20.740173224319022!3d42.21995961226521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135395a705b8e14b%3A0xd558e19f4aba3162!2sBazhdarhane%2C%20Prizren!5e0!3m2!1sen!2s!4v1680873593637!5m2!1sen!2s" width="1395" height="470" style="border:0; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <div class="texti">
   <h3>Contact&Location</h3>
@@ -209,7 +253,7 @@
   </div>
             <p>Ju mund te na kontaktoni ne keta numra +38344100100 dhe +38349100100 ose email mrizi@yahoo.com, or you can send us a
                 message here:</p>
-            <form action="/action_page.php" target="_blank">
+                <form method="post" action="lokacioni.php">
                 <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
    
                 <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements"
