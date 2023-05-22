@@ -102,7 +102,7 @@ font-weight: bold;
 
     <!-- Slides -->
     <div class="slide">
-        <img src="asstes/images/steak.jpeg" alt="Kotlet">
+        <img src="assets/images/steak.jpeg" alt="Kotlet">
         <div class="caption">Kotlet  </div>
     </div>
     <div class="slide">
