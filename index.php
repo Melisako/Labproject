@@ -28,6 +28,7 @@
         letter-spacing: 8px;
       }
       .w3-bar {
+      
   height: 61px;
  width: 1430px;
 }
