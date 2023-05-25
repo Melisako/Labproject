@@ -31,13 +31,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   exit;
 }
 
-// Retrieve existing menu items from the database
-$stmt = $pdo->prepare("SELECT * FROM menu");
-$stmt->execute();
-$menu_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Close the database connection
-$pdo = null;
 
 ?>
 

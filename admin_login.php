@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 letter-spacing: 5px;
             }
             body {
-  background-image: url("images/d.jpeg");
+  background-image: url("assets/images/d.jpeg");
   background-size: cover;
             }
             .form-container {

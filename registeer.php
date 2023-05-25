@@ -9,9 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate input and sanitize data
     $email = $_POST['email'];
-    $password = $_POST['password'];
+   
     $cell = $_POST['cell'];
     $date = $_POST['date'];
+    $guests=$_POST['guests'];    
 
     // Get the current date
     $current_date = date('Y-m-d');
@@ -21,14 +22,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Display an error message and prevent the data from being inserted
         header('Location: WrongDate.html');
         die(); // Stop the script
-    } else {
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    }
+    if ($guests > 10) {
+      // Display an error message
+      header('Location: Guests.html');
+      die(); // Stop the script
+  }
+
 
         // Insert the data into the database
-        $sqlInsert = "INSERT INTO dbuser (email, password, cell, date) VALUES (:email, :password, :cell, :date)";
+        $sqlInsert = "INSERT INTO dbuser (email,  cell, date, guests) VALUES (:email,  :cell, :date, :guests)";
         $statement = $pdo->prepare($sqlInsert);
-        $statement->execute(array(':email' => $email, ':password' => $hashed_password, ':cell' => $cell, ':date' => $date));
+        $statement->execute(array(':email' => $email,  ':cell' => $cell, ':date' => $date, ':date' => $date));
 
         // Check if the query returned a row
         if ($statement->rowCount() > 0) {
@@ -39,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Not logged in";
         }
     }
-}
+
 ?>
 
 
@@ -60,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <style>
             body {
                 font-family: "Times New Roman", Georgia, Serif;
-                background-image: url("images/d.jpeg");
+                background-image: url("assets/images/d.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -82,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 .w3-bar-item {
     font-size: 15px;
   }
-
+.form-container input[]
         </style>
     </head>
 <body>
@@ -117,12 +122,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      
         <label>Email:</label>
         <input type="email" name="email" required>
-        <label>Password:</label>
-        <input type="password" name="password" required>
+     
         <label>Nr.Telefonit:</label>
         <input type="tel" name="cell" required>
         <label>Date:</label>
         <input type="date" name="date" required>
+        <label>Guests:</label>
+        <input type="number" name="guests" required>
         <a href="admin_login.php" style="color: #263A29; border: 2px solid #263A29;
          position: fixed;
          bottom: 15px;
@@ -162,11 +168,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     color: #263A29;
     margin-bottom: 10px;
   }
-  
-  .registration-form input[type="password"],
+
   .registration-form input[type="email"],
   .registration-form input[type="tel"],
-  .registration-form input[type="date"] {
+  .registration-form input[type="date"],
+  .registration-form input[type="number"]{
     display: block;
     width: 100%;
     padding: 10px;
