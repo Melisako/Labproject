@@ -2,9 +2,6 @@
 session_start();
 include "menagdb.php";
 
-// $sql = "SELECT * FROM menu";
-// $stmt = $pdo->prepare($sql);
-// $result = $pdo->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +13,7 @@ include "menagdb.php";
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
 		
 <style>
      body {
@@ -143,7 +140,7 @@ tr:nth-child(even) {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h1>Dashboard</h1>
+<h1>Staf - Dashboard</h1>
 </header>
 
 <section>

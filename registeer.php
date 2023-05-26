@@ -20,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the selected date is equal to the current date
     if ($date != $current_date) {
         // Display an error message and prevent the data from being inserted
-        header('Location: WrongDate.html');
+        header('Location: html/WrongDate.html');
         die(); // Stop the script
     }
     if ($guests > 10) {
       // Display an error message
-      header('Location: Guests.html');
+      header('Location: html/Guests.html');
       die(); // Stop the script
   }
 

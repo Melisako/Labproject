@@ -4,31 +4,28 @@ include "menagdb.php";
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
   $id = $_POST['id'];
-  $name = trim($_POST['name']);
-  $pershkrimi = trim($_POST['pershkrimi']);
-  $price = floatval($_POST['price']);
+  $name = trim($_POST['image']);
+  $pershkrimi = trim($_POST['alt']);
+  $price = floatval($_POST['caption']);
   
-  if(empty($name) || empty($pershkrimi) || $price <= 0){
-    echo "Invalid input";
-    exit;
-  }
+
   
   // Sanitize user input
-  $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-  $pershkrimi = htmlspecialchars($pershkrimi, ENT_QUOTES, 'UTF-8');
+  $alt = htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
+  $caption = htmlspecialchars($caption, ENT_QUOTES, 'UTF-8');
   
   // Update the item in the database
-  $stmt = $pdo->prepare("UPDATE menu SET name=?, pershkrimi=?, price=? WHERE id=?");
-  $stmt->execute([$name, $pershkrimi, $price, $id]);
+  $stmt = $pdo->prepare("UPDATE portfolio SET image=?, alt=?, caption=? WHERE id=?");
+  $stmt->execute([$image, $alt, $caption, $id]);
 
   echo "Menu item updated successfully";
   $pdo = null;
-  header('Location: dashboard.php');
+  header('Location: admin-dashboard.php');
   exit;
 }
 
 $id = $_GET['id'];
-$stmt = $pdo->prepare("SELECT * FROM menu WHERE id=?");
+$stmt = $pdo->prepare("SELECT * FROM portfolio WHERE id=?");
 $stmt->execute([$id]);
 $menu_item = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -182,17 +179,17 @@ font-weight: bold;
 <!-- Display the form -->
 <div class="form-container">
 <form method="POST">
-  <input type="hidden" name="id" value="<?php echo $menu_item['id']; ?>">
-  <label for="name" style="font-size: 23px; padding-left:100px;">Name:</label>
-  <input type="text" name="name" value="<?php echo $menu_item['name']; ?>" required>
+<label for="image" style="font-size: 23px; padding-left: 100px; ">Image:</label>
+<input type="file" name="image" id="image" required>
+
   <br><br>
-  <label for="pershkrimi" style="font-size: 23px; padding-left:100px ">Pershkrimi:</label>
-  <input type="text" name="pershkrimi" value="<?php echo $menu_item['pershkrimi']; ?>" required>
+  <label for="pershkrimi" style="font-size: 23px; padding-left:100px ">Alt:</label>
+  <input type="text" name="alt" value="<?php echo $menu_item['alt']; ?>" required>
   <br><br>
-  <label for="price" style="font-size: 23px; padding-left:100px;">Price:</label>
-  <input type="number" name="price" step="0.01" min="0" value="<?php echo $menu_item['price']; ?>" required>
+  <label for="price" style="font-size: 23px; padding-left:100px;">Caption:</label>
+  <input type="text" name="caption"  value="<?php echo $menu_item['caption']; ?>" required>
   <br><br>
-  <input type="submit" value="Update Menu Item" style="margin-left:100px;">
+  <input type="submit" value="Update Gallery Items" style="margin-left:100px;">
 </form>
 </div>
 

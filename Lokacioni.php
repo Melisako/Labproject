@@ -282,51 +282,5 @@ exit();
 
 
 
-
-
-    
-
-<footer>
-  
-</footer>
-
-
-
-
-    <script>
-  var sliderIndex = 0;
-var sliderImages = document.getElementsByClassName("slider-image");
-
-function showNextSlide() {
-  // Hide current slide
-  sliderImages[sliderIndex].classList.remove("active");
-  // Move to next slide
-  sliderIndex = (sliderIndex + 1) % sliderImages.length;
-  // Show next slide
-  sliderImages[sliderIndex].classList.add("active");
-}
-
-// Show first slide
-sliderImages[sliderIndex].classList.add("active");
-
-// Automatically show next slide every 3 seconds
-setInterval(showNextSlide, 3030);
-
-
-
-// Replace "your-location-image.jpg" with the actual file name of your image
-const locationImage = document.querySelector('prizreni.jpg');
-locationImage.addEventListener('error', function() {
-  locationImage.src = 'prizreni.jpg'; // Replace "default-location-image.jpg" with the default image you want to use in case the location image doesn't load
-});
-
-
-
-
-
-
-
-
-        </script>
 </body>
         </html>

@@ -2,7 +2,9 @@
 session_start();
 include "menagdb.php";
 
-
+// $sql = "SELECT * FROM menu";
+// $stmt = $pdo->prepare($sql);
+// $result = $pdo->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -44,13 +46,29 @@ h1 {
 	margin: 0;
 }
 
+  .edit-button,
+  .delete-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+  
+  .edit-button:hover,
+  .delete-button:hover {
+    background-color: #0056b3;
+  }
+
 .menu{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 20px;
 	padding: 20px;
-	border: 1px solid #ccc;
+	border: 2px solid #ccc;
 	border-radius: 5px;
 	transition: box-shadow 0.3s ease-in-out;
 }
@@ -74,6 +92,39 @@ h1 {
 	font-weight: bold;
 	margin-top: 20px;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.button {
+  background-color: #696969;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 2px solid #696969;
+  color: #fff;
+  margin-left: 10px;
+  
+}
+.table-image {
+        width: 100px; /* Adjust the width as desired */
+        height: 100px; /* Adjust the height as desired */
+        object-fit: cover; /* Preserve aspect ratio and cover the entire space */
+        border-radius: 50%; /* Apply rounded corners */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    }
+
 
 </style>
 
@@ -100,36 +151,48 @@ h1 {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h1>Best Dishes</h1>
+<h1>Admin - Dashboard</h1>
 </header>
 
 <section>
 
-
-            <?php
-                $sql = "SELECT * FROM menu";
-                $result = $pdo->query($sql);
-
-
-                while($row = $result->fetch(PDO::FETCH_ASSOC)){
-                    echo "<div class='menu'>";
-                    echo "<h2>".$row["name"]."</h2>";
-                    echo "p".$row["pershkrimi"]."</p>";
-                    echo "<span class='price'>".$row["price"]." $</span>";
-                    echo "</div>";
-                }
-
-         
-            ?>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM portfolio";
+$result = $pdo->query($sql);
 
 
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." $</td>";
+    echo "<td>
+    <a href='edit-gallery.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-gallery.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-gallery.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+
+
+?>
+</table>
+            
 </section>
-
-
-
-</html>
-</section>
-
 
 </body>
 </html>

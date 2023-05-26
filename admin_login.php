@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Check if the query returned a row
   if ($stmt->rowCount() > 0) {
-    header("Location: add_menu.php");
+    header("Location: admin-dashboard.php");
     exit();
   }else{
   echo" Not logedin";
