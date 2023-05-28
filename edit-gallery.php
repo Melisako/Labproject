@@ -4,21 +4,21 @@ include "menagdb.php";
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
   $id = $_POST['id'];
-  $name = trim($_POST['image']);
-  $pershkrimi = trim($_POST['alt']);
-  $price = floatval($_POST['caption']);
+  $image = trim($_POST['image']);
+  $alt = trim($_POST['alt']);
+  $caption = trim($_POST['caption']);
   
-
-  
+ 
   // Sanitize user input
-  $alt = htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
+  $alt= htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
   $caption = htmlspecialchars($caption, ENT_QUOTES, 'UTF-8');
   
   // Update the item in the database
   $stmt = $pdo->prepare("UPDATE portfolio SET image=?, alt=?, caption=? WHERE id=?");
   $stmt->execute([$image, $alt, $caption, $id]);
 
-  echo "Menu item updated successfully";
+
+  echo "Portfolio item updated successfully";
   $pdo = null;
   header('Location: admin-dashboard.php');
   exit;
@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 $id = $_GET['id'];
 $stmt = $pdo->prepare("SELECT * FROM portfolio WHERE id=?");
 $stmt->execute([$id]);
-$menu_item = $stmt->fetch(PDO::FETCH_ASSOC);
+$portfolio_item = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Close the database connection
 $pdo = null;
@@ -51,7 +51,7 @@ $pdo = null;
 		
 <style>
      body {
-      background-image: url(aa.jpeg);
+      background-image: url(assets/images/aa.jpeg);
                 font-family: "Times New Roman", Georgia, Serif;
             }
 
@@ -129,6 +129,12 @@ height: 400px;
 
 }
 
+.form-container input[type="file"] {
+  color: rgba(22,22,22,0.5); 
+
+
+  }
+
 
 .form-container input[type="text"] {
 
@@ -139,7 +145,7 @@ height: 400px;
     cursor: pointer;
    
   }
-  .form-container input[type="number"] {
+  .form-container input[type="caption"] {
 
 border: 3px solid	#606060;
  padding: 10px 16px;
@@ -178,16 +184,16 @@ font-weight: bold;
 
 <!-- Display the form -->
 <div class="form-container">
-<form method="POST">
-<label for="image" style="font-size: 23px; padding-left: 100px; ">Image:</label>
-<input type="file" name="image" id="image" required>
+<form method="POST" action="edit-gallery.php">
+<label for="image" style="font-size: 23px; padding-left: 100px;">Image:</label>
+<input type="file" name="image" id="image" value="<?php echo $portfolio_item['image']; ?>" required>
 
   <br><br>
-  <label for="pershkrimi" style="font-size: 23px; padding-left:100px ">Alt:</label>
-  <input type="text" name="alt" value="<?php echo $menu_item['alt']; ?>" required>
+  <label for="alt" style="font-size: 23px; padding-left:100px ">Alt:</label>
+  <input type="text" name="alt" value="<?php echo $portfolio_item['alt']; ?>" required>
   <br><br>
-  <label for="price" style="font-size: 23px; padding-left:100px;">Caption:</label>
-  <input type="text" name="caption"  value="<?php echo $menu_item['caption']; ?>" required>
+  <label for="caption" style="font-size: 23px; padding-left:100px;">Caption:</label>
+  <input type="text" name="caption"  value="<?php echo $portfolio_item['caption']; ?>" required>
   <br><br>
   <input type="submit" value="Update Gallery Items" style="margin-left:100px;">
 </form>

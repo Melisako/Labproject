@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <style>
       body {
         font-family: "Times New Roman", Georgia, Serif;
-        background-image: url("aa.jpeg");
+        background-image: url("assets/images/aa.jpeg");
       }
       
       h1, h2, h3, h4, h5, h6 {

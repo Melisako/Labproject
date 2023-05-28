@@ -253,6 +253,7 @@ exit();
   </div>
             <p>Ju mund te na kontaktoni ne keta numra +38344100100 dhe +38349100100 ose email mrizi@yahoo.com, or you can send us a
                 message here:</p>
+
                 <form method="post" action="lokacioni.php">
                 <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
    

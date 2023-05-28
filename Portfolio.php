@@ -77,7 +77,7 @@ font-weight: bold;
 
     .portfolio-item {
         flex: 0 0 100%;
-        border: 1px solid #ccc;
+        border: 1px solid rgba(255, 255, 255, 0.5);
         padding: 10px;
         margin-bottom: 20px;
     }
@@ -85,8 +85,8 @@ font-weight: bold;
 
 
     .portfolio-item img {
-        width: 1000px;
-        height: 700px;
+        width: 1400px;
+        height: 750px;
     }
 </style>
 </head>
@@ -109,49 +109,48 @@ font-weight: bold;
     </div>
 
 
-<?php
-// Assuming you have already established a PDO database connection
-
-$sql = "SELECT * FROM portfolio";
-$result = $pdo->query($sql);
-
-echo '<div class="slideshow">'; // Start of the slideshow container
-
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    echo "<div class='portfolio-item'>";
-    echo "<h2>" . $row["alt"] . "</h2>";
-    echo "<p>" . $row["caption"] . "</p>";
-    echo "<img src='" . $row["image"] . "' alt='" . $row["caption"] . "'>";
-    echo "</div>";
-}
-
-echo '</div>'; // End of the slideshow container
-?>
-
+    <div class="slideshow">
+  <?php
+  // Assuming you have already established a PDO database connection
+  
+  $sql = "SELECT * FROM portfolio";
+  $result = $pdo->query($sql);
+  
+  while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      echo "<div class='portfolio-item'>";
+      echo "<h2>" . $row["alt"] . "</h2>";
+      echo "<p>" . $row["caption"] . "</p>";
+      echo "<img src='assets/images/" . $row["image"] . "' alt='" . $row["alt"] . $row["caption"] ."'>";
+      echo "</div>";
+  }
+  ?>
+</div>
 
 <script>
-
 (function() {
-    // Get all the portfolio items within the slideshow container
-    var portfolioItems = document.querySelectorAll('.slideshow .portfolio-item');
-    var currentIndex = 0;
-
-    // Function to show the next slide
-    function showNextSlide() {
-        // Reset the current slide to initial position
-        portfolioItems[currentIndex].style.transform = 'translateX(-100%)';
-        
-        // Increment the current index
-        currentIndex = (currentIndex + 1) % portfolioItems.length;
-        
-        // Move the next slide to the visible position
-        portfolioItems[currentIndex].style.transform = 'translateX(0)';
+  var slides = document.querySelectorAll('.slideshow .portfolio-item');
+  var currentIndex = 0;
+  
+  // Function to show the current slide
+  function showSlide(index) {
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
     }
-
-    // Automatically show the next slide every 3 seconds (adjust the interval as desired)
-    setInterval(showNextSlide, 4000);
+    slides[index].style.display = 'block';
+  }
+  
+  // Function to show the next slide
+  function showNextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+  
+  // Show the first slide initially
+  showSlide(currentIndex);
+  
+  // Automatically show the next slide every 4 seconds (adjust the interval as desired)
+  setInterval(showNextSlide, 4000);
 })();
-
 </script>
 
 

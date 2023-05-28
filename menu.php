@@ -13,7 +13,7 @@ include "menagdb.php";
 <title>Mrizi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="stylesheet" type="text/css" href="asset/css/style.css">
         <link rel="stylesheet" href="assets/css/main.css" />
 		
 <style>
@@ -97,7 +97,7 @@ h1 {
     </div>
      <!-- Header -->
 	 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
 <h1>Best Dishes</h1>
@@ -114,7 +114,7 @@ h1 {
                 while($row = $result->fetch(PDO::FETCH_ASSOC)){
                     echo "<div class='menu'>";
                     echo "<h2>".$row["name"]."</h2>";
-                    echo "p".$row["pershkrimi"]."</p>";
+                    echo "<p>".$row["pershkrimi"]."</p>";
                     echo "<span class='price'>".$row["price"]." $</span>";
                     echo "</div>";
                 }

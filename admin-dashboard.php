@@ -2,9 +2,7 @@
 session_start();
 include "menagdb.php";
 
-// $sql = "SELECT * FROM menu";
-// $stmt = $pdo->prepare($sql);
-// $result = $pdo->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +36,7 @@ header {
 	color: #fff;
 	padding: 60px;
 	text-align: center;
-    background-image: url("images/mi.jpg");
+    background-image: url("assets/images/mi.jpg");
 
 }
 
@@ -173,10 +171,11 @@ $result = $pdo->query($sql);
 while($row = $result->fetch(PDO::FETCH_ASSOC)){
     echo "<tr>";
     echo "<td>".$row["id"]."</td>";
-    echo "<td><img src='" . $row["image"] . "' alt='Image' class='table-image'></td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
 
     echo "<td>".$row["alt"]."</td>";
-    echo "<td>".$row["caption"]." $</td>";
+    echo "<td>".$row["caption"]." </td>";
     echo "<td>
     <a href='edit-gallery.php?id=".$row["id"]."' class='button'>Edit</a>
     <a href='delete-gallery.php?id=".$row["id"]."' class='button'>Delete</a>

@@ -54,7 +54,7 @@ $pdo = null;
 		
 <style>
      body {
-      background-image: url(aa.jpeg);
+      background-image: url(assets/images/aa.jpeg);
                 font-family: "Times New Roman", Georgia, Serif;
             }
 
