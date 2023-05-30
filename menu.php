@@ -36,7 +36,7 @@ header {
 	color: #fff;
 	padding: 60px;
 	text-align: center;
-    background-image: url("images/mi.jpg");
+    background-image: url("assets/images/mi.jpg");
 
 }
 

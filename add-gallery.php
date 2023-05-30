@@ -154,25 +154,6 @@ font-weight: bold;
 
 
 
-<script>
-
-const fileInput = document.getElementById('image');
-  const previewImage = document.getElementById('preview');
-
-  fileInput.addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-      previewImage.src = e.target.result;
-      previewImage.style.display = 'block';
-    };
-
-    reader.readAsDataURL(file);
-  });
-
-</script>
-
 
 </body>
 </html>

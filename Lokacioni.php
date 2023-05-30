@@ -55,7 +55,7 @@ exit();
       .mySlides {display:none;}
       body {
         font-family: "Times New Roman", Georgia, Serif;
-        background-image: url("aa.jpeg");
+        background-image: url("assets/images/aa.jpeg");
       }
       h1,
       h2,

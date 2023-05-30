@@ -14,7 +14,7 @@
         font-family: "Times New Roman", Georgia, Serif;
 
         background-color: #f1f1f1;
-  background-image: url("aa.jpeg");
+  background-image: url("assets/images/aa.jpeg");
   background-repeat: repeat;
   background-size: cover;
       }

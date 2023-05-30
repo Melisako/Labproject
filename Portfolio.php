@@ -127,30 +127,23 @@ font-weight: bold;
 </div>
 
 <script>
+
 (function() {
-  var slides = document.querySelectorAll('.slideshow .portfolio-item');
-  var currentIndex = 0;
-  
-  // Function to show the current slide
-  function showSlide(index) {
-    for (var i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    slides[index].style.display = 'block';
-  }
-  
-  // Function to show the next slide
-  function showNextSlide() {
+  let slides = document.querySelectorAll('.slideshow .portfolio-item');
+  let currentIndex = 0;
+
+  function showSlide() {
+    
+    slides.forEach(slide => slide.style.display = 'none');
+    slides[currentIndex].style.display = 'block';
     currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
   }
-  
-  // Show the first slide initially
-  showSlide(currentIndex);
-  
-  // Automatically show the next slide every 4 seconds (adjust the interval as desired)
-  setInterval(showNextSlide, 4000);
+
+  showSlide();
+  setInterval(showSlide, 3000);
 })();
+
+
 </script>
 
 
