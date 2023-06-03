@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include "menagdb.php";
 
@@ -184,7 +185,8 @@ font-weight: bold;
 
 <!-- Display the form -->
 <div class="form-container">
-<form method="POST" action="edit-gallery.php">
+<form method="POST" >
+<input type="hidden" name="id" value="<?php echo $portfolio_item['id']; ?>">
 <label for="image" style="font-size: 23px; padding-left: 100px;">Image:</label>
 <input type="file" name="image" id="image" value="<?php echo $portfolio_item['image']; ?>" required>
 
