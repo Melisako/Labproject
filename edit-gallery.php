@@ -3,27 +3,31 @@
 session_start();
 include "menagdb.php";
 
-if($_SERVER['REQUEST_METHOD']=='POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $id = $_POST['id'];
-  $image = trim($_POST['image']);
+  $image = $_FILES['image'];
   $alt = trim($_POST['alt']);
   $caption = trim($_POST['caption']);
   
- 
   // Sanitize user input
-  $alt= htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
+  $alt = htmlspecialchars($alt, ENT_QUOTES, 'UTF-8');
   $caption = htmlspecialchars($caption, ENT_QUOTES, 'UTF-8');
   
-  // Update the item in the database
-  $stmt = $pdo->prepare("UPDATE portfolio SET image=?, alt=?, caption=? WHERE id=?");
-  $stmt->execute([$image, $alt, $caption, $id]);
 
-
-  echo "Portfolio item updated successfully";
-  $pdo = null;
-  header('Location: admin-dashboard.php');
-  exit;
-}
+    
+    // Update the item in the database
+    $stmt = $pdo->prepare("UPDATE portfolio SET image=?, alt=?, caption=? WHERE id=?");
+    $stmt->execute([$image['name'], $alt, $caption, $id]);
+    
+    echo "Portfolio item updated successfully";
+    $pdo = null;
+    header('Location: Portfolio.php');
+    exit;
+  } else {
+    // Failed to move the uploaded file
+    // Handle the error accordingly
+    echo "Failed to upload the image";
+  }
 
 $id = $_GET['id'];
 $stmt = $pdo->prepare("SELECT * FROM portfolio WHERE id=?");
@@ -34,7 +38,6 @@ $portfolio_item = $stmt->fetch(PDO::FETCH_ASSOC);
 $pdo = null;
 
 ?>
-
 
 
 

@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate input and sanitize data
     $email = $_POST['email'];
-   
     $cell = $_POST['cell'];
     $date = $_POST['date'];
     $guests=$_POST['guests'];    
@@ -20,20 +19,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the selected date is equal to the current date
     if ($date != $current_date) {
         // Display an error message and prevent the data from being inserted
-        header('Location: html/WrongDate.html');
+        header('Location: WrongDate.html');
+
         die(); // Stop the script
     }
     if ($guests > 10) {
       // Display an error message
-      header('Location: html/Guests.html');
+      header('Location: Guests.html');
+
       die(); // Stop the script
   }
-
+    
 
         // Insert the data into the database
-        $sqlInsert = "INSERT INTO dbuser (email,  cell, date, guests) VALUES (:email,  :cell, :date, :guests)";
+        $sqlInsert = "INSERT INTO dbuser (email, cell, date, guests) VALUES (:email, :cell, :date, :guests)";
         $statement = $pdo->prepare($sqlInsert);
-        $statement->execute(array(':email' => $email,  ':cell' => $cell, ':date' => $date, ':date' => $date));
+        $statement->execute(array(':email' => $email, ':cell' => $cell, ':date' => $date, ':guests' => $guests));
+
 
         // Check if the query returned a row
         if ($statement->rowCount() > 0) {
