@@ -1,4 +1,3 @@
-
 <?php
 // Start session
 session_start();
@@ -8,12 +7,15 @@ include "menagdb.php";
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Generate a token
+  $token = bin2hex(random_bytes(16));
 
-  
+  // Store the token in the session
+  $_SESSION['login_token'] = $token;
+
   // Get email and password from form
   $email = $_POST['email'];
   $password = $_POST['password'];
- 
 
   // Prepare SQL statement
   $stmt = $pdo->prepare("SELECT * FROM admin WHERE email = :email AND password = :password");
@@ -27,13 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Check if the query returned a row
   if ($stmt->rowCount() > 0) {
+    // Redirect to the admin dashboard
     header("Location: admin-dashboard.php");
     exit();
-  }else{
-  echo" Not logedin";
+  } else {
+    echo "Not logged in";
   }
-  }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -136,6 +140,7 @@ input[type="submit"]:hover {
 
   <label for="password">Password:</label>
   <input type="password" id="password" name="password" required>
+ 
 
   <input type="submit" value="Login">
 </form>

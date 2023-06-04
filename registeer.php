@@ -9,10 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate input and sanitize data
     $email = $_POST['email'];
-   
     $cell = $_POST['cell'];
     $date = $_POST['date'];
-    $guests=$_POST['guests'];    
+    $guests = $_POST['guests'];    
 
     // Get the current date
     $current_date = date('Y-m-d');
@@ -20,31 +19,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the selected date is equal to the current date
     if ($date != $current_date) {
         // Display an error message and prevent the data from being inserted
-        header('Location: html/WrongDate.html');
-        die(); // Stop the script
+        header('Location: WrongDate.html');
+        exit();
     }
+    
     if ($guests > 10) {
-      // Display an error message
-      header('Location: html/Guests.html');
-      die(); // Stop the script
-  }
-
-
-        // Insert the data into the database
-        $sqlInsert = "INSERT INTO dbuser (email,  cell, date, guests) VALUES (:email,  :cell, :date, :guests)";
-        $statement = $pdo->prepare($sqlInsert);
-        $statement->execute(array(':email' => $email,  ':cell' => $cell, ':date' => $date, ':date' => $date));
-
-        // Check if the query returned a row
-        if ($statement->rowCount() > 0) {
-            // Redirect to a success page
-            header('Location: review.php');
-            exit();
-        } else {
-            echo "Not logged in";
-        }
+        // Display an error message
+        header('Location: Guests.html');
+        exit();
     }
 
+ 
+    // Insert the data into the database
+    $sqlInsert = "INSERT INTO dbuser (email, cell, date, guests) VALUES (:email, :cell, :date, :guests)";
+    $statement = $pdo->prepare($sqlInsert);
+    $statement->execute(array(':email' => $email, ':cell' => $cell, ':date' => $date, ':guests' => $guests));
+
+    // Check if the query returned a row
+    if ($statement->rowCount() > 0) {
+        // Redirect to a success page
+        header('Location: review.php');
+        exit();
+    } else {
+        echo "Not logged in";
+    }
+}
 ?>
 
 
@@ -140,7 +139,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          bottom: 55px;
          right: 15px;
    padding: 10px 25px; border-radius: 3px; text-decoration: none; font-size: 9px;">Je Staf ? Eja kycu</a><br>
-        <input type="submit" name ="submit " value="Register">
+  
+   <input type="submit" name ="submit " value="Register">
 
     </form>
 </div>

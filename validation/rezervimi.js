@@ -1,3 +1,4 @@
+
 function validateForm() {
   
     var email = document.getElementsByName("email")[0].value;
@@ -12,3 +13,4 @@ function validateForm() {
 
     return true;
   }
+  

@@ -61,7 +61,7 @@ exit();
     <style>
       .mySlides {display:none;}
       body {
-        background-image:  url("aa.jpeg");
+        background-image:  url("assets/images/aa.jpeg");
         font-family: "Times New Roman", Georgia, Serif;
       }
       h1,
