@@ -1,0 +1,76 @@
+
+
+
+
+
+.caption {
+    padding-bottom: 35px;
+    background-color: rgba(238, 207, 161, 0.9);
+    border-radius: 0;
+    border: 7px solid #f7dcb4;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 21px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    top: 50%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+    width: 420px;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+    box-shadow: inset 0px 0px 20px 10px rgba(255,255,255,0.8);
+  }
+  
+  
+  
+  .caption p {
+  margin: 40px;
+  }
+  
+  
+  
+  .caption::before {
+    /* Existing styles */
+    content: "\1F37D";
+    font-family: "Noto Color Emoji";
+    margin-right: 10px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    
+  
+  }
+  .w3-content {
+    position: relative;
+}
+/* Style for navigation buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "prev" button to the left */
+.prev {
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
