@@ -114,6 +114,66 @@ tr:nth-child(even) {
   margin-left: 10px;
   
 }
+h3 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+    /* CSS styles for the table */
+    table.drinks {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table.drinks th,
+    table.drinks td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table.drinks th {
+      background-color: #f2f2f2;
+    }
+
+    /* CSS styles for the review */
+    .review {
+      margin-bottom: 20px;
+    }
+
+    .rating {
+      margin-bottom: 10px;
+    }
+
+    .rating .fa {
+      color: orange;
+    }
+    
+    .checked {
+      color: orange;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .table-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border-radius: 50%;
+}
 
 </style>
 
@@ -144,7 +204,7 @@ tr:nth-child(even) {
 </header>
 
 <section>
-
+<h3>See Food</h3>
 <table>
     <tr>
         <th>ID</th>
@@ -178,8 +238,186 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)){
 
 
 ?>
+
 </table>
-            
+<br>
+<h3>See Non-Alcoholic-Drinks</h3>
+<table class="drinks">
+  
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM drinks";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td>".$row["name"]."</td>";
+    echo "<td>".$row["pershkrimi"]."</td>";
+    echo "<td>".$row["price"]." $</td>";
+    echo "<td>
+    <a href='edit_drink.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete_drink.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add_drink.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+
+
+?>
+</table>
+<br>
+<h3>See Alcoholic-Drinks</h3>
+<table class="drinks">
+  
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM adrinks";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td>".$row["name"]."</td>";
+    echo "<td>".$row["pershkrimi"]."</td>";
+    echo "<td>".$row["price"]." $</td>";
+    echo "<td>
+    <a href='edit-alcoholic.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-alcoholic.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-alcoholic.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+
+
+?>
+</table>
+            <br>
+            <h3>See Vegetarian-Food</h3>
+<table class="drinks">
+  
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM vfood";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td>".$row["name"]."</td>";
+    echo "<td>".$row["pershkrimi"]."</td>";
+    echo "<td>".$row["price"]." $</td>";
+    echo "<td>
+    <a href='edit-vfood.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-vfood.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-vfood.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+
+
+?>
+</table>
+<br>
+
+<h3>See Review</h3>
+  <table class="drinks">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    <?php
+    $sql = "SELECT * FROM review";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      echo "<tr>";
+      echo "<td>" . $row["id"] . "</td>";
+      echo "<td>" . $row["name"] . "</td>";
+      echo "<td>" . $row["rating"] . "</td>";
+      echo "<td>" . $row["comment"] . "</td>";
+      echo "<td>
+        <a href='edit-review.php?id=" . $row["id"] . "' class='button'>Edit</a>
+        <a href='delete-review.php?id=" . $row["id"] . "' class='button'>Delete</a>
+        <a href='add-review.php?id=" . $row["id"] . "' class='button'>Create</a>
+      </td>";
+      echo "</tr>";
+    }
+    ?>
+</table>
+<h3 class="h3">SEE PORTFOLIO-DRINKS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM pdrinks";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-pdrinks.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-pdrinks.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-pdrinks.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+
+
+?>
+</table>
 </section>
 
 </body>

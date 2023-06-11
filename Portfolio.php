@@ -19,10 +19,10 @@ include 'menagdb.php';
     font-family: "Times New Roman", Georgia, Serif;
 }
 .w3-bar-item {
-    font-size: 15px;
+    font-size: 14px;
   }
   .w3-bar {
-  height: 67px;
+  height: 72px;
 }
 h1,
 h2,
@@ -99,7 +99,7 @@ font-weight: bold;
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
+                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
                 <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
                 <a href="registeer.php" class="w3-bar-item w3-button">Rezervo</a>
                 <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>

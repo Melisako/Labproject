@@ -90,7 +90,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
           <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-          <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
+          <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
           <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
           <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
         </div>

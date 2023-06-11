@@ -31,16 +31,17 @@ include "menagdb.php";
                 letter-spacing: 5px;
             }
        
-header {
+            header {
 	background-color: #333;
 	color: #fff;
-	padding: 60px;
+	padding: 80px;
 	text-align: center;
-    background-image: url("assets/images/mi.jpg");
+    background-image: url("assets/images/foo.jpg");
 
 }
 
 h1 {
+    padding-top: 40px;
 	margin: 0;
 }
 
@@ -86,9 +87,9 @@ h1 {
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
-                <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
+                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
                 <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+                <a href="Events.php" class="w3-bar-item w3-button">Events</a>
                 <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
      
 
@@ -100,7 +101,7 @@ h1 {
 	
 </head>
 <body>
-<h1>Best Dishes</h1>
+<h1>NON-VEGETARIAN</h1>
 </header>
 
 <section>

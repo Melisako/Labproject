@@ -123,6 +123,15 @@ tr:nth-child(even) {
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
     }
 
+    .h3{
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+
+    }
 
 </style>
 
@@ -135,7 +144,7 @@ tr:nth-child(even) {
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
+                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
                 <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
                 <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
                 <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
@@ -153,7 +162,7 @@ tr:nth-child(even) {
 </header>
 
 <section>
-
+<h3 class="h3">SEE MENU</h3>
 <table>
     <tr>
         <th>ID</th>
@@ -190,7 +199,448 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)){
 
 ?>
 </table>
-            
+<br>
+<h3 class="h3">RESERVATIONS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM dbuser";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["cell"] . "</td>";
+        echo "<td>" . $row["date"] . "</td>";
+        echo "<td>" . $row["guests"] . "</td>";
+        echo "<td>
+                  <a href='edit-r.php?id=".$row["id"]."' class='button'>Edit</a>
+                  <a href='delete-r.php?id=".$row["id"]."' class='button'>Delete</a>
+                  <a href='add-r.php?id=".$row["id"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+<br>
+<h3 class="h3">SEE LOCATION</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    
+
+    <?php
+$sql = "SELECT * FROM lokacioni";
+$result = $pdo->query($sql);
+
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo "<tr>";
+    echo "<td>" . $row["id"] . "</td>";
+    echo "<td>" . $row["name"] . "</td>";
+    echo "<td>" . $row["comment"] . "</td>";
+    echo "<td>
+              <a href='edit-location.php?id=".$row["id"]."' class='button'>Edit</a>
+              <a href='delete-location.php?id=".$row["id"]."' class='button'>Delete</a>
+              <a href='add-location.php?id=".$row["id"]."' class='button'>Create</a>
+          </td>";
+    echo "</tr>";
+}
+?>
+
+
+</table>
+<br>
+<h3 class="h3">EVENTS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM event";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["cell"] . "</td>";
+        echo "<td>" . $row["date"] . "</td>";
+        echo "<td>" . $row["guests"] . "</td>";
+        echo "<td>
+                  <a href='edit-event.php?id=".$row["id"]."' class='button'>Edit</a>
+                  <a href='delete-event.php?id=".$row["id"]."' class='button'>Delete</a>
+                  <a href='add-event.php?id=".$row["id"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table> 
+
+<h3 class="h3">SEE PUBLIC-EVENTS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM public";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-public.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-public.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-public.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+?>
+</table> 
+<h3 class="h3">SEE PRIVATE-EVENTS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM private";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-private.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-private.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-private.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+?>
+</table>
+<br>
+
+<h3 class="h3">SEE OUTDOOR-EVENTS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM outdoor";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-outdoor.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-outdoor.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-outdoor.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+?>
+</table>
+<br>
+<h3 class="h3">PUBLIC RESERVATION</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM rprivate";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["cell"] . "</td>";
+        echo "<td>" . $row["date"] . "</td>";
+        echo "<td>" . $row["guests"] . "</td>";
+        echo "<td>
+                  <a href='edit-reservation-public.php?id=".$row["id"]."' class='button'>Edit</a>
+                  <a href='delete-reservation-public.php?id=".$row["id"]."' class='button'>Delete</a>
+                  <a href='add-reservation-public.php?id=".$row["id"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+
+<br>
+<h3 class="h3">PRIVATE RESERVATION</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM rprivate";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["cell"] . "</td>";
+        echo "<td>" . $row["date"] . "</td>";
+        echo "<td>" . $row["guests"] . "</td>";
+        echo "<td>
+                  <a href='edit-reservation-public.php?id=".$row["id"]."' class='button'>Edit</a>
+                  <a href='delete-reservation-public.php?id=".$row["id"]."' class='button'>Delete</a>
+                  <a href='add-reservation-public.php?id=".$row["id"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+<br>
+<h3 class="h3">OUTDOOR RESERVATION</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM routdoor";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["cell"] . "</td>";
+        echo "<td>" . $row["date"] . "</td>";
+        echo "<td>" . $row["guests"] . "</td>";
+        echo "<td>
+                  <a href='edit-reservation-outdoor.php?id=".$row["id"]."' class='button'>Edit</a>
+                  <a href='delete-reservation-outdoor.php?id=".$row["id"]."' class='button'>Delete</a>
+                  <a href='add-reservation-outdoor.php?id=".$row["id"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+<br>
+
+<h3 class="h3">SEE OUR TEAM</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM team";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-team.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-team.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-team.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+?>
+</table>
+<br>
+<h3 class="h3">APPLICATIONS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nr.Telefonit</th>
+        <th>Position</th>
+      
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM apply";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["cell"] . "</td>";
+        echo "<td>" . $row["position"] . "</td>";
+        echo "<td>
+                  <a href='edit-apply.php?id=".$row["id"]."' class='button'>Edit</a>
+                  <a href='delete-apply.php?id=".$row["id"]."' class='button'>Delete</a>
+                  <a href='add-apply.php?id=".$row["id"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+<br>
+<h3 class="h3">SEE GOODS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM bakery";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-bakery.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-bakery.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-bakery.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+?>
+</table>
+<br>
+<h3 class="h3">SEE TREATS</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Alt</th>
+        <th>Caption</th>
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM treats";
+$result = $pdo->query($sql);
+
+
+while($row = $result->fetch(PDO::FETCH_ASSOC)){
+    echo "<tr>";
+    echo "<td>".$row["id"]."</td>";
+    echo "<td><img src='assets/images/" . $row["image"] . "' alt='Image' class='table-image'></td>";
+
+
+    echo "<td>".$row["alt"]."</td>";
+    echo "<td>".$row["caption"]." </td>";
+    echo "<td>
+    <a href='edit-treat.php?id=".$row["id"]."' class='button'>Edit</a>
+    <a href='delete-treat.php?id=".$row["id"]."' class='button'>Delete</a>
+    <a href='add-treat.php?id=".$row["id"]."' class='button'>Create</a>
+  </td>";
+
+  
+    // echo "<a href='edit_item.php?id=".$row["id"].">";
+    echo "</tr>";
+}
+?>
+</table>
 </section>
 
 </body>

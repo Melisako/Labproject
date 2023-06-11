@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
       .mySlides {display:none;}
@@ -24,16 +25,18 @@
       h4,
       h5,
       h6 {
+        font-weight: bold;
         font-family: "Playfair Display";
         letter-spacing: 8px;
       }
       .w3-bar {
       
   height: 61px;
- width: 1430px;
+ width: 1300px;
 }
 .w3-bar-item {
-    font-size: 15px;
+
+    font-size: 13px;
   }
       .button {
         display: inline-block;
@@ -115,6 +118,22 @@ li {
 
 }
 
+.menu-children {
+  display: none;
+}
+.menu-item-has-children:hover .menu-children {
+  background-color: red;
+  display: block;
+}
+
+:root {
+  --color-primary: #0073ff;
+  --color-white: #e9e9e9;
+  --color-black: #141d28;
+  --color-black-1: #212b38;
+}
+
+
 
 
     </style>
@@ -124,21 +143,29 @@ li {
     <!-- Navbar (sit on top) -->
     <div class="navigmi-top">
   
-      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
         <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
-     
-       
-        <!-- Right-sided navbar links. Hide them on small screens -->
-        <div class="w3-right w3-hide-small">
-          <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-          <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
-          <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
-          <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
-          <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
-        </div>
-      </div>
+ 
+<div class="navv" style="padding-left: 650px">
+  <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button" style="  font-family: Playfair Display;
+        letter-spacing: 4px;">Menu</button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
+      <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+      <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+      <!-- Add more submenu links here if needed -->
     </div>
+  </div>
+  <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+  <a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+  <a href="team.php" class="w3-bar-item w3-button">Team</a>
+  <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+</div>
+</div>
    
+
     
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;min-width:1300px" id="home">

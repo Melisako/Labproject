@@ -61,7 +61,7 @@ exit();
     <style>
       .mySlides {display:none;}
       body {
-        background-image:  url("aa.jpeg");
+        background-image:  url("assets/images/aa.jpeg");
         font-family: "Times New Roman", Georgia, Serif;
       }
       h1,
@@ -179,9 +179,9 @@ margin-right: 19px;
         <div class="w3-right w3-hide-small">
           <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
           <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
-          <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
           <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
-          <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
+          <a href="Events.php" class="w3-bar-item w3-button">Events</a>
+          <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
          
         </div>
       </div>
@@ -197,8 +197,10 @@ margin-right: 19px;
 
 <br><br>
 
+<section>
 
-      <div class="review-container">
+
+<div class="review-container">
       <form method="post" action="review.php">
   
   <br><br>
@@ -232,7 +234,7 @@ margin-right: 19px;
 </form>
 
 </div>
-
+</section>
 
 
 

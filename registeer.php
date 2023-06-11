@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   height: 61px;
 }
 .w3-bar-item {
-    font-size: 15px;
+    font-size: 14px;
   }
 .form-container input[]
         </style>
@@ -101,9 +101,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
             <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
-                <a href="Portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
-                <a href="registeer.php" class="w3-bar-item w3-button">Rezervo</a>
+                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
+                <a href="registeer.php" class="w3-bar-item w3-button">Rezervimi</a>
+                <a href="SelectEvent.html" class="w3-bar-item w3-button">Events</a>
                 <a href="Lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
                
 									

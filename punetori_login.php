@@ -139,8 +139,8 @@ input[type="submit"]:hover {
         <div class="w3-right w3-hide-small">
             <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
             <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
-            <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
             <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+            <a href="Events.php" class="w3-bar-item w3-button">Events</a>
             <a href="admin_login.php" class="w3-bar-item w3-button">Stafi</a>	
             <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
 

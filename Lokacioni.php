@@ -197,10 +197,10 @@ exit();
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
           <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-          <a href="menu.php" class="w3-bar-item w3-button">Menu</a>
-          <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
-          <a href="registeer.php" class="w3-bar-item w3-button">Rezervo</a>
-          <a href="Lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
+          <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
+          <a href="registeer.php" class="w3-bar-item w3-button">Rezervimi</a>
+          <a href="Events.php" class="w3-bar-item w3-button">Events</a>
+          <a href="Lokacioni.php" class="w3-bar-item w3-button">Contact</a>
         </div>
       </div>
     </div>
@@ -255,11 +255,11 @@ exit();
                 message here:</p>
 
                 <form method="post" action="lokacioni.php">
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+              <input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name">
    
-                <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements"
+                <input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements"
                         required name="Message"></p>
-                <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
+                <button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button>
      
 
         <!-- End page content -->
