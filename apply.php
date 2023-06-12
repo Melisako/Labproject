@@ -6,17 +6,14 @@ include "menagdb.php";
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    // Validate input and sanitize data
     $email = $_POST['email'];
     $cell = $_POST['cell'];
    $position =$_POST['position'];
 
-
     
 
         // Insert the data into the database
-        $sqlInsert = "INSERT INTO apply (email, cell, date,) VALUES (:email, :cell, :position, )";
+        $sqlInsert = "INSERT INTO apply (email, cell, position) VALUES (:email, :cell, :position)";
         $statement = $pdo->prepare($sqlInsert);
         $statement->execute(array(':email' => $email, ':cell' => $cell, ':position' => $position));
 
@@ -24,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Check if the query returned a row
         if ($statement->rowCount() > 0) {
             // Redirect to a success page
-            header('Location: apply.php');
+            header('Location:apply.php');
             exit();
         } else {
             echo "Not logged in";
@@ -104,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
  <!-- Start page content -->
 <div class="form-container">
-    <form method="post" action="registeer.php" class="registration-form">
+    <form method="post" action="apply.php" class="registration-form">
      
         <label>Email:</label>
         <input type="email" name="email" required>
