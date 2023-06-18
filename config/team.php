@@ -16,6 +16,7 @@ include 'menagdb.php';
 <style>
     /* Add your CSS styles here */
     body {
+      background-image: url("assets/images/aa.jpeg");
     font-family: "Times New Roman", Georgia, Serif;
 }
 .w3-bar-item {
