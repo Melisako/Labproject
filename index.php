@@ -152,16 +152,16 @@ li {
     <button class="w3-button" style="  font-family: Playfair Display;
         letter-spacing: 4px;">Menu</button>
     <div class="w3-dropdown-content w3-bar-block">
-      <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
-      <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
-      <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+      <a href="config/Select2.html" class="w3-bar-item w3-button">FOOD</a>
+      <a href="config/alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+      <a href="config/SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
       <!-- Add more submenu links here if needed -->
     </div>
   </div>
-  <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
-  <a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
-  <a href="team.php" class="w3-bar-item w3-button">Team</a>
-  <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+  <a href="config/registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+  <a href="config/SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+  <a href="config/team.php" class="w3-bar-item w3-button">Team</a>
+  <a href="config/lokacioni.php" class="w3-bar-item w3-button">Contact</a>
 </div>
 </div>
    
