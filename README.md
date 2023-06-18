@@ -22,4 +22,4 @@
 ### Screenshots
 - Main ones :
 
-<img src="assets/images/Homepage.png" width="380"><img src="assets/images/menu.png"  width="375"> <br> <img src="assets/images/Portfolio.png" width="375"> <img src="assets/images/Guests.PNG" width="375">
+<img src="config/food1.PNG" width="380"><img src="config/food2.PNG"  width="375"> <br> <img src="config/food3.PNG" width="375"> <img src="config/food4.PNG" width="375">
