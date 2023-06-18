@@ -31,7 +31,7 @@ include "menagdb.php";
                 letter-spacing: 5px;
             }
        
-header {
+            header {
 	background-color: #333;
 	color: #fff;
 	padding: 80px;
@@ -39,6 +39,15 @@ header {
     background-image: url("assets/images/drin.jpg");
 
 }
+.w3-bar {
+      
+      height: 61px;
+     width: 1300px;
+    }
+    .w3-bar-item {
+    
+        font-size: 13px;
+      }
 
 h1 {
     padding-top: 40px;
@@ -81,34 +90,43 @@ h1 {
 
 <body>
 
-<div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
-                <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
-                <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
-                <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
-                <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
-     
-
-            </div>
-        </div>
+    <!-- Navbar (sit on top) -->
+    <div class="navigmi-top">
+  
+      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
+        <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
+ 
+<div class="navv" style="padding-left: 650px">
+  <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button" style="  font-family: Playfair Display;
+        letter-spacing: 4px;">Menu</button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
+      <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+      <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+      <!-- Add more submenu links here if needed -->
     </div>
+  </div>
+  <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+  <a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+  <a href="team.php" class="w3-bar-item w3-button">Team</a>
+  <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+</div>
+</div>
      <!-- Header -->
 	 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
 	
 </head>
 <body>
-<h1>ALCOHOLIC</h1>
+<h1>NON-ALCOHOLIC</h1>
 </header>
 
 <section>
 
 
             <?php
-                $sql = "SELECT * FROM adrinks";
+                $sql = "SELECT * FROM drinks";
                 $result = $pdo->query($sql);
 
 

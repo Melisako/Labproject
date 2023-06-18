@@ -1,4 +1,3 @@
-
 <?php
 // Start session
 session_start();
@@ -6,14 +5,22 @@ session_start();
 // Include database connection file
 include "menagdb.php";
 
+// Generate CSRF token if not already set
+if (!isset($_SESSION['csrf_token'])) {
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
   
+  // Verify CSRF token
+  if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    die("Invalid CSRF token!");
+  }
+
   // Get email and password from form
   $email = $_POST['email'];
   $password = $_POST['password'];
- 
 
   // Prepare SQL statement
   $stmt = $pdo->prepare("SELECT * FROM admin WHERE email = :email AND password = :password");
@@ -29,10 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if ($stmt->rowCount() > 0) {
     header("Location: admin-dashboard.php");
     exit();
-  }else{
-  echo" Not logedin";
+  } else {
+    echo "Not logged in";
   }
-  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -131,6 +138,7 @@ input[type="submit"]:hover {
 
 <div class="form-container">
 <form method="post" action="admin_login.php" >
+<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required>
 

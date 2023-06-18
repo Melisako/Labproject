@@ -92,22 +92,29 @@ font-weight: bold;
 </head>
 
 <body>
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="#home" class="w3-bar-item w3-button">Mrizi</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
-                <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
-                <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
-                <a href="registeer.php" class="w3-bar-item w3-button">Rezervo</a>
-                <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
-									
-            </div>
-        </div>
-    </div>
+   <!-- Navbar (sit on top) -->
+   <div class="navigmi-top">
+  
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
+    <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
 
+<div class="navv" style="padding-left: 650px">
+<a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
+<div class="w3-dropdown-hover">
+<button class="w3-button" style="  font-family: Playfair Display;
+    letter-spacing: 4px;">Menu</button>
+<div class="w3-dropdown-content w3-bar-block">
+  <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
+  <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+  <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+  <!-- Add more submenu links here if needed -->
+</div>
+</div>
+<a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+<a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+<a href="team.php" class="w3-bar-item w3-button">Team</a>
+<a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+</div>
 
     <div class="slideshow">
   <?php

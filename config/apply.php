@@ -6,41 +6,22 @@ include "menagdb.php";
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    // Validate input and sanitize data
     $email = $_POST['email'];
     $cell = $_POST['cell'];
-    $date = $_POST['date'];
-    $guests=$_POST['guests'];    
+   $position =$_POST['position'];
 
-    // Get the current date
-    $current_date = date('Y-m-d');
-
-    // Check if the selected date is equal to the current date
-    if ($date != $current_date) {
-        // Display an error message and prevent the data from being inserted
-        header('Location: WrongDate.html');
-
-        die(); // Stop the script
-    }
-    if ($guests > 10) {
-      // Display an error message
-      header('Location: Guests.html');
-
-      die(); // Stop the script
-  }
     
 
         // Insert the data into the database
-        $sqlInsert = "INSERT INTO routdoor (email, cell, date, guests) VALUES (:email, :cell, :date, :guests)";
+        $sqlInsert = "INSERT INTO apply (email, cell, position) VALUES (:email, :cell, :position)";
         $statement = $pdo->prepare($sqlInsert);
-        $statement->execute(array(':email' => $email, ':cell' => $cell, ':date' => $date, ':guests' => $guests));
+        $statement->execute(array(':email' => $email, ':cell' => $cell, ':position' => $position));
 
 
         // Check if the query returned a row
         if ($statement->rowCount() > 0) {
             // Redirect to a success page
-            header('Location: private.php');
+            header('Location:apply.php');
             exit();
         } else {
             echo "Not logged in";
@@ -94,54 +75,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </head>
 <body>
 
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
-            <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
-                <a href="registeer.php" class="w3-bar-item w3-button">Rezervimi</a>
-                <a href="SelectEvent.html" class="w3-bar-item w3-button">Events</a>
-                <a href="Lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
-               
-									
-               
-               
-									
-
-            </div>
-        </div>
+<!-- Navbar (sit on top) -->
+    <div class="navigmi-top">
+  
+      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
+        <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
+ 
+<div class="navv" style="padding-left: 650px">
+  <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button" style="  font-family: Playfair Display;
+        letter-spacing: 4px;">Menu</button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
+      <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+      <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+      <!-- Add more submenu links here if needed -->
     </div>
+  </div>
+  <a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+  <a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+  <a href="team.php" class="w3-bar-item w3-button">Team</a>
+  <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+</div>
+</div>
 
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
         
  <!-- Start page content -->
 <div class="form-container">
-    <form method="post" action="public.php" class="registration-form">
+    <form method="post" action="apply.php" class="registration-form">
      
         <label>Email:</label>
         <input type="email" name="email" required>
      
         <label>Nr.Telefonit:</label>
         <input type="tel" name="cell" required>
-        <label>Date:</label>
-        <input type="date" name="date" required>
-        <label>Guests:</label>
-        <input type="number" name="guests" required>
-        <a href="admin_login.php" style="color: #263A29; border: 2px solid #263A29;
-         position: fixed;
-         bottom: 15px;
-         right: 15px;
-   padding: 10px 25px; border-radius: 3px; text-decoration: none; font-size: 9px;">Je Administrator ? Eja kycu</a><br>
- 
- <a href="punetori_login.php" style="color: 263A29; border: 2px solid #263A29;
-         position: fixed;
-         bottom: 55px;
-         right: 15px;
-   padding: 10px 25px; border-radius: 3px; text-decoration: none; font-size: 9px;">Je Staf ? Eja kycu</a><br>
+     
+  <br>
+  <label for="position">Position:</label>
+    <select name="position" required>
+      <option value="">Select position</option>
+      <option value="chef">Chef</option>
+      <option value="linecook">Prepcook</option>
+      <option value="prepcook">Linecook</option>
+      <option value="dishwasher">Dishwasher</option>
+      <option value="server">Server</option>
+    </select>
+
+       
         <input type="submit" name ="submit " value="Register">
 
     </form>
@@ -170,6 +153,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     color: #263A29;
     margin-bottom: 10px;
   }
+
+ 
+  select[name="position"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #333;
+    }
 
   .registration-form input[type="email"],
   .registration-form input[type="tel"],
@@ -214,7 +207,9 @@ cursor: pointer;
 }
 
 
-
+label[for="position"]{
+  padding: 20px;
+}
   
 
 
@@ -246,21 +241,7 @@ input:not(:placeholder-shown) + .floating-label {
 
 
 </style>
-<script>
-
-const inputs = document.querySelectorAll('.registration-form input');
-
-inputs.forEach(input => {
-  input.addEventListener('focus', () => {
-    input.previousElementSibling.classList.add('active');
-  });
-  
-  input.addEventListener('blur', () => {
-    if (input.value === '') {
-      input.previousElementSibling.classList.remove('active');
-    }
-  });
-});
 
 
-</script>
+</body>
+</html>

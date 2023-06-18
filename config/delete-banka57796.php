@@ -4,12 +4,12 @@ include "menagdb.php";
 
 
 
-function deleteProduct($id){
+function deleteProduct($ID57796){
     global $pdo;
 
-    $sql = "DELETE FROM apply WHERE id = :id";
+    $sql = "DELETE FROM Banka57796 WHERE ID57796 = :ID57796";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->bindParam(':ID57796', $ID57796, PDO::PARAM_INT);
     $stmt->execute();
 
     if ($stmt->execute()){

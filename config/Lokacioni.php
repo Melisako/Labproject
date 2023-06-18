@@ -77,6 +77,10 @@ exit();
   transition: opacity 1s ease-in-out;
 }
 
+    .w3-bar-item {
+    
+        font-size: 13px;
+      }
 
 .slider-image.active {
   opacity: 1;
@@ -190,20 +194,29 @@ exit();
       </head>
      
   
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-      <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-        <a href="#home" class="w3-bar-item w3-button">Mrizi</a>
-        <!-- Right-sided navbar links. Hide them on small screens -->
-        <div class="w3-right w3-hide-small">
-          <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-          <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
-          <a href="registeer.php" class="w3-bar-item w3-button">Rezervimi</a>
-          <a href="Events.php" class="w3-bar-item w3-button">Events</a>
-          <a href="Lokacioni.php" class="w3-bar-item w3-button">Contact</a>
-        </div>
-      </div>
-    </div>
+     <!-- Navbar (sit on top) -->
+     <div class="navigmi-top">
+  
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
+    <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
+
+<div class="navv" style="padding-left: 650px">
+<a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
+<div class="w3-dropdown-hover">
+<button class="w3-button" style="  font-family: Playfair Display;
+    letter-spacing: 4px;">Menu</button>
+<div class="w3-dropdown-content w3-bar-block">
+  <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
+  <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+  <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+  <!-- Add more submenu links here if needed -->
+</div>
+</div>
+<a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+<a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+
+<a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+</div>
     <header>
   <div class="slider-container">
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5909.483896731428!2d20.740173224319022!3d42.21995961226521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135395a705b8e14b%3A0xd558e19f4aba3162!2sBazhdarhane%2C%20Prizren!5e0!3m2!1sen!2s!4v1680873593637!5m2!1sen!2s" width="1395" height="470" style="border:0; " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

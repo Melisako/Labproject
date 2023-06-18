@@ -641,6 +641,68 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)){
 }
 ?>
 </table>
+<br>
+
+<h3 class="h3">SEE Banka57796</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+       
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+$sql = "SELECT * FROM Banka57796";
+$result = $pdo->query($sql);
+
+
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["ID57796"] . "</td>";
+        echo "<td>" . $row["Emri57796"] . "</td>";
+     
+        echo "<td>
+                  <a href='edit-banka57796.php?id=".$row["ID57796"]."' class='button'>Edit</a>
+                  <a href='delete-banka57796.php?id=".$row["ID57796"]."' class='button'>Delete</a>
+                  <a href='add-Banka57796.php?id=".$row["ID57796"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
+<br>
+<h3 class="h3">SEE Banka57796</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Emri57796</th>
+        <th>Mbiemri</th>
+        <th>BanakID</th>
+      
+        <th>Actions</th>
+    </tr>
+    
+    <?php
+    $sql = "SELECT * FROM person57796";
+    $result = $pdo->query($sql);
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["id57796"] . "</td>";
+        echo "<td>" . $row["emri57796"] . "</td>";
+        echo "<td>" . $row["mbiemri57796"] . "</td>";
+        echo "<td>" . $row["BankaID"] . "</td>";
+        echo "<td>
+                  <a href='edit-personi57796.php?id=".$row["id57796"]."' class='button'>Edit</a>
+                  <a href='delete-personi57796.php?id=".$row["id57796"]."' class='button'>Delete</a>
+                  <a href='add-personi57796.php?id=".$row["id57796"]."' class='button'>Create</a>
+              </td>";
+        echo "</tr>";
+    }
+    ?>
+</table>
 </section>
 
 </body>

@@ -92,39 +92,36 @@ font-weight: bold;
 </head>
 
 <body>
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="#home" class="w3-bar-item w3-button">Mrizi</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
-            <a href="routdoor.php" class="w3-bar-item w3-button" style=" 
-     
+     <!-- Navbar (sit on top) -->
+     <div class="navigmi-top">
+  
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; ">
+    <a href="index.php" class="w3-bar-item w3-button">Mrizi</a>
 
-     background-color: #4CAF50;
-     color: white;
-     text-decoration: none;
-     border-radius: 20px;
-     transition: background-color 0.3s ease;
-     border: 3px solid #4e704e; padding: 8px;">Inquire Event</a>
-
-                <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
-                <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
-               
-                <a href="registeer.php" class="w3-bar-item w3-button">Rezervimi</a>
-                <a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
-                <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
-									
-            </div>
-        </div>
-    </div>
-
+<div class="navv" style="padding-left: 650px">
+<a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
+<div class="w3-dropdown-hover">
+<button class="w3-button" style="  font-family: Playfair Display;
+    letter-spacing: 4px;">Menu</button>
+<div class="w3-dropdown-content w3-bar-block">
+  <a href="Select2.html" class="w3-bar-item w3-button">FOOD</a>
+  <a href="alcoholic.html" class="w3-bar-item w3-button">DRINKS</a>
+  <a href="SelectBakery.html" class="w3-bar-item w3-button">BAKERY</a>
+  <!-- Add more submenu links here if needed -->
+</div>
+</div>
+<a href="registeer.php" class="w3-bar-item w3-button">Rezervimet</a>
+<a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+<a href="team.php" class="w3-bar-item w3-button">Team</a>
+<a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
+</div>
+</div>
 
     <div class="slideshow">
   <?php
   // Assuming you have already established a PDO database connection
   
-  $sql = "SELECT * FROM outdoor";
+  $sql = "SELECT * FROM bakery";
   $result = $pdo->query($sql);
   
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {

@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 include "menagdb.php";
@@ -97,39 +99,24 @@ h1 {
         </div>
     </div>
      <!-- Header -->
-	 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-	
-</head>
-<body>
-<h1>VEGETARIAN</h1>
-</header>
 
-<section>
+<!-- Fetch and display data -->
 
+<!-- Fetch and display data -->
 
-            <?php
-                $sql = "SELECT * FROM vfood";
-                $result = $pdo->query($sql);
-
-
-                while($row = $result->fetch(PDO::FETCH_ASSOC)){
-                    echo "<div class='menu'>";
-                    echo "<h2>".$row["name"]."</h2>";
-                    echo "<p>".$row["pershkrimi"]."</p>";
-                    echo "<span class='price'>".$row["price"]." $</span>";
-                    echo "</div>";
-                }
-
-         
-            ?>
-
-
-</section>
+    <?php
+$sql = "SELECT * FROM Banka57796";
+$result = $pdo->query($sql);
 
 
 
-</html>
-</section>
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row["ID57796"] . "</td>";
+        echo "<td>" . $row["Emri57796"] . "</td>";
+     
+    }
+    ?>
 
 
 </body>

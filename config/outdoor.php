@@ -98,11 +98,23 @@ font-weight: bold;
             <a href="#home" class="w3-bar-item w3-button">Mrizi</a>
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
+            <a href="routdoor.php" class="w3-bar-item w3-button" style=" 
+     
+
+     background-color: #4CAF50;
+     color: white;
+     text-decoration: none;
+     border-radius: 20px;
+     transition: background-color 0.3s ease;
+     border: 3px solid #4e704e; padding: 8px;">Inquire Event</a>
+
                 <a href="index.php" class="w3-bar-item w3-button">Rreth Nesh</a>
                 <a href="Select.html" class="w3-bar-item w3-button">Menu</a>
-                <a href="portfolio.php" class="w3-bar-item w3-button">Portfolio</a>
-                <a href="registeer.php" class="w3-bar-item w3-button">Rezervo</a>
-                <a href="lokacioni.php" class="w3-bar-item w3-button">Lokacioni</a>
+               
+                <a href="registeer.php" class="w3-bar-item w3-button">Rezervimi</a>
+                <a href="SelectEvent.html" class="w3-bar-item w3-button">Event</a>
+                <a href="team.php" class="w3-bar-item w3-button">Team</a>
+                <a href="lokacioni.php" class="w3-bar-item w3-button">Contact</a>
 									
             </div>
         </div>
@@ -113,7 +125,7 @@ font-weight: bold;
   <?php
   // Assuming you have already established a PDO database connection
   
-  $sql = "SELECT * FROM bakery";
+  $sql = "SELECT * FROM outdoor";
   $result = $pdo->query($sql);
   
   while ($row = $result->fetch(PDO::FETCH_ASSOC)) {

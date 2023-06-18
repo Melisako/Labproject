@@ -74,9 +74,14 @@ exit();
         letter-spacing: 8px;
       }
       .w3-bar {
-  height: 65px;
-}
-
+      
+      height: 61px;
+     width: 1300px;
+    }
+    .w3-bar-item {
+    
+        font-size: 13px;
+      }
 .review-container form {
 align-items: center;
   width: 700px;

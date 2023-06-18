@@ -13,16 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $date = $_POST['date'];
     $guests=$_POST['guests'];    
 
-    // Get the current date
-    $current_date = date('Y-m-d');
-
-    // Check if the selected date is equal to the current date
-    if ($date != $current_date) {
-        // Display an error message and prevent the data from being inserted
-        header('Location: WrongDate.html');
-
-        die(); // Stop the script
-    }
+  
     if ($guests > 10) {
       // Display an error message
       header('Location: Guests.html');
@@ -32,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 
         // Insert the data into the database
-        $sqlInsert = "INSERT INTO dbuser (email, cell, date, guests) VALUES (:email, :cell, :date, :guests)";
+        $sqlInsert = "INSERT INTO routdoor (email, cell, date, guests) VALUES (:email, :cell, :date, :guests)";
         $statement = $pdo->prepare($sqlInsert);
         $statement->execute(array(':email' => $email, ':cell' => $cell, ':date' => $date, ':guests' => $guests));
 
@@ -40,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Check if the query returned a row
         if ($statement->rowCount() > 0) {
             // Redirect to a success page
-            header('Location: review.php');
+            header('Location: private.php');
             exit();
         } else {
             echo "Not logged in";
@@ -120,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
  <!-- Start page content -->
 <div class="form-container">
-    <form method="post" action="registeer.php" class="registration-form">
+    <form method="post" action="public.php" class="registration-form">
      
         <label>Email:</label>
         <input type="email" name="email" required>
